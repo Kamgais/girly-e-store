@@ -1,0 +1,175 @@
+@import '../../../styles/colors';
+@import '../../../styles/breakpoints';
+
+
+
+.navBar{
+
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        @include xl{
+            height: 80px;
+        }
+        @include lg {
+            height: 70px;
+            padding-left: 5rem;
+            padding-right: 5rem;
+        }
+
+        @include md {
+            height: 70px;
+            padding-right: 3rem;
+            padding-left: 3rem;
+        }
+
+        @include breakpointmax(720px) {
+            height: 70px;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            
+        }
+        @include breakpointmax(720px) {
+            
+            padding-left: 1rem;
+            padding-right: 2rem;
+            
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 0px 2px 2px rgb(233, 233, 233);
+        padding: 1rem 8rem;
+        width: 100vw;
+    
+    
+           
+        .logo {
+            @include breakpointmax(720px) {
+               
+               
+            }
+        }
+         .logo img{
+            width: 100px;
+    
+            &:hover {
+                cursor: pointer;
+            }
+         }
+    
+         .searchBar {
+           width: 30%;
+           position: relative;
+
+           @include breakpointmax (720px) {
+            width: 53vw;
+            display: flex;
+            justify-content: flex-end;
+           }
+
+           @include breakpointmax (600px) {
+            width: 40vw;
+           
+           }
+
+           @include breakpointmax (600px) {
+           justify-content: center;
+           
+           }
+
+           
+             
+    
+           input{
+            width: 100%;
+            height: 50px;
+            padding: 0 20px;
+            font-size: 18px;
+            border: 0px;        
+            background-color: rgb(243, 243, 243);
+            border-radius: 5px;
+
+              @include breakpointmax(720px) {
+                display: none;
+              }
+    
+               &:focus {
+                outline: none;
+                border: 2px solid;
+                border-color: $base-rosa-color;
+               }
+           }
+    
+    
+           i{
+
+            
+                position: absolute;
+                top: 30%;
+                right: 5%;
+            
+            
+            @include breakpointmax(720px) {
+             position: relative;
+                background: $base-white-color;
+             padding: 10px;
+             border-radius: 5px;
+             cursor: pointer;
+            }
+           
+            font-size: 20px;
+           }
+         }
+    
+         .icons{
+             width: 30%;
+    
+            ul{
+                display: flex;
+                justify-content: space-around;
+                list-style: none;
+    
+                li{
+                    padding: 10px;
+                    font-family: 'Roboto', sans-serif;
+                    border: none;
+                    border-radius: 3px;
+                    @include breakpointmax (1000px) {
+                     margin-right: 30px;
+                    }
+
+                    @include breakpointmax (720px) {
+                        margin-right: 10px;
+                       }
+    
+                    &:hover{
+                        cursor: pointer;
+                    }
+    
+    
+    
+                    &:nth-child(1) {
+                        background: $base-rosa-color;
+                        color: $base-white-color;
+                    }
+    
+                    &:nth-child(2) {
+                        background-color: $base-white-color;
+                        color: $base-rosa-color;
+                    }
+                }
+    
+                
+            }
+            
+         
+
+    }
+
+
+
+
+}
+
+

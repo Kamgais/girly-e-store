@@ -1,0 +1,139 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 2px 2px rgb(233, 233, 233);
+  padding: 1rem 8rem;
+  width: 100vw;
+}
+@media (min-width: 1200px) {
+  .navBar {
+    height: 80px;
+  }
+}
+@media (min-width: 960px) {
+  .navBar {
+    height: 70px;
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+}
+@media (min-width: 720px) {
+  .navBar {
+    height: 70px;
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+}
+@media (max-width: 720px) {
+  .navBar {
+    height: 70px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (max-width: 720px) {
+  .navBar {
+    padding-left: 1rem;
+    padding-right: 2rem;
+  }
+}
+.navBar .logo img {
+  width: 100px;
+}
+.navBar .logo img:hover {
+  cursor: pointer;
+}
+.navBar .searchBar {
+  width: 30%;
+  position: relative;
+}
+@media (max-width: 720px) {
+  .navBar .searchBar {
+    width: 53vw;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+@media (max-width: 600px) {
+  .navBar .searchBar {
+    width: 40vw;
+  }
+}
+@media (max-width: 600px) {
+  .navBar .searchBar {
+    justify-content: center;
+  }
+}
+.navBar .searchBar input {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  font-size: 18px;
+  border: 0px;
+  background-color: rgb(243, 243, 243);
+  border-radius: 5px;
+}
+@media (max-width: 720px) {
+  .navBar .searchBar input {
+    display: none;
+  }
+}
+.navBar .searchBar input:focus {
+  outline: none;
+  border: 2px solid;
+  border-color: #e84393;
+}
+.navBar .searchBar i {
+  position: absolute;
+  top: 30%;
+  right: 5%;
+  font-size: 20px;
+}
+@media (max-width: 720px) {
+  .navBar .searchBar i {
+    position: relative;
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+.navBar .icons {
+  width: 30%;
+}
+.navBar .icons ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+.navBar .icons ul li {
+  padding: 10px;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  border-radius: 3px;
+}
+@media (max-width: 1000px) {
+  .navBar .icons ul li {
+    margin-right: 30px;
+  }
+}
+@media (max-width: 720px) {
+  .navBar .icons ul li {
+    margin-right: 10px;
+  }
+}
+.navBar .icons ul li:hover {
+  cursor: pointer;
+}
+.navBar .icons ul li:nth-child(1) {
+  background: #e84393;
+  color: #f1f1f1;
+}
+.navBar .icons ul li:nth-child(2) {
+  background-color: #f1f1f1;
+  color: #e84393;
+}/*# sourceMappingURL=navbar.css.map */
