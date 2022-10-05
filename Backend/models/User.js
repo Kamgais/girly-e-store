@@ -26,6 +26,7 @@ const User = sequelize.define('users', {
             notNull: {
                 msg: 'the username is a required proprety'
             }
+            
         }
 
 

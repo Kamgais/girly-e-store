@@ -1,11 +1,54 @@
 @import '../../../styles/colors';
 @import '../../../styles/breakpoints';
+
+
+.error{
+    width: 100%;
+    height: 50px;
+    max-width: 400px;
+    display: flex;
+    justify-content: flex-start;
+    line-height: 3.2;
+    padding-left: 15px;
+    color: white;
+    font-family: 'Roboto';
+    margin: 0 auto;
+    margin-top: 50px;
+    display: none;
+    opacity: 0;
+    background-color: red;
+
+
+    p{
+        display: inline;
+        font-size: 17px;
+    }
+
+    i{
+        font-size: 30px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 .navForm{
     font-family: 'Roboto';
    position: absolute;
+   margin-top: 70px;
    top: 50%;
    left: 50%;
-   width: 20vw;
+   width: 30vw;
+   max-width: 500px;
    padding: 30px ;
    background-color: transparent ;
    box-shadow: 0px 0px 3px 5px rgb(235, 233, 233);
