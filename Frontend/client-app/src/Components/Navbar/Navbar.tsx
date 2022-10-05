@@ -1,9 +1,11 @@
 import React, {FunctionComponent} from 'react'
+import {NavigateFunction, Link, useNavigate} from 'react-router-dom';
 import Logo from '../../Assets/images/logo.png'
 import './navbar.styles/navbar.css'
 
 
 const Navbar: FunctionComponent = () => {
+    const navigate:NavigateFunction = useNavigate();
   return (
     <nav className='navBar'>
         <div className="logo">
@@ -16,8 +18,8 @@ const Navbar: FunctionComponent = () => {
         </div>
         <div className="icons">
             <ul className='icons-items'>
-                <li className='icons-itemA'>LOGIN</li>
-                <li className='icons-itemB'>REGISTER</li>
+                <li className='icons-itemA' onClick={()=> navigate('/login')}>LOGIN</li>
+                <li className='icons-itemB' onClick={()=> navigate('/register')}>REGISTER</li>
                 
             </ul>
         </div>

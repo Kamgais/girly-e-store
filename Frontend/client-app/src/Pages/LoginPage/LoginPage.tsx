@@ -1,10 +1,11 @@
 import React, {FunctionComponent}from 'react'
+import NavigationForm from '../../Components/NavigationForm/NavigationForm'
 
 const LoginPage: FunctionComponent = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+     <NavigationForm action='LOGIN'/> 
+    </>
   )
 }
 

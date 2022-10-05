@@ -1,6 +1,8 @@
 const express = require('express');
+const cors = require('cors');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv')
+const cookieParser = require('cookie-parser')
 const {connection, sequelize} = require('./sequelize.config')
 
 // import routes
@@ -26,6 +28,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 //parse application/json
 app.use(bodyParser.json())
+app.use(cookieParser())
+app.use(cors())
 
 
 
