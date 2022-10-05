@@ -3,7 +3,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const {ValidationError} = require('sequelize')
 const UserService = require('../services/user-service');
-const generateError = require('../utils/error')
+const generateError = require('../utils/error');
+const { findUserById } = require('../services/user-service');
 
 
 // create a user account
@@ -11,14 +12,20 @@ const generateError = require('../utils/error')
 const createAccount = () => {
     return async (req,res,next) => {
      try {
+        
        const newUser = await UserService.createUser(req.body);
-       res.status(201).json({message: 'User has been created...', data : newUser})
+       const {password, ...others} = newUser.dataValues;
+       res.status(201).json({message: 'User has been created...', data : others})
 
      } catch (error) {
-        if(error instanceof ValidationError) {
-        return generateError(400,error.message)  
+        
+        if(error instanceof UniqueConstraintError) {
+            return res.status(400).json({message: error.parent.message})
         }
-       next(error) ;    
+        if(error instanceof ValidationError) {
+            return res.status(400).json( {message : error.message})
+        }
+       next(error);    
     }
     }
 }
@@ -31,25 +38,53 @@ const loginAccount = () => {
         const message = 'wrong credentials!!!'
         try {
          const user = await UserService.findUserByUsername(req.body.username);
-         !user && res.status(400).json({message})
+         !user && res.status(404).json({message})
 
          const validated = await bcrypt.compare(req.body.password, user.password);
-         !validated &&  res.status(400).json({message})
+         !validated &&  res.status(401).json({message})
          // create a token for the user
          const token = jwt.sign({
             id: user.id,isAdmin: user.isAdmin
-         }, process.env.JWT)
+         }, process.env.JWT,{
+            expiresIn: '30s'
+         })
          // console.log(user)
          const {password,isAdmin,...others} = user.dataValues;
          res
-         .cookie('access_token', token, {
-            httpOnly : true
+        .cookie('access_token', token,{
+            path: '/',
+            expiresIn: new Date(Date.now() + 1000 * 30),
+            httpOnly: true,
+            sameSite: 'lax'
         })
-        .status(200).json(others);
+        .status(200).json({others, token});
         } catch (error) {
            next(error) 
         }
     }
 }
 
-module.exports = {createAccount, loginAccount}
+
+const getUser = () => {
+    return async (req,res,next) => {
+    
+        try {
+        const userId = req.id;
+        const user = await UserService.findUserById(userId);
+        if(!user) {
+            return res.status(404).json({message: 'User not found'});
+
+        }
+        return res.status(200).json({user})
+    }
+    catch (error) {
+        next(error);
+       } 
+
+    }
+}
+
+
+
+
+module.exports = {createAccount, loginAccount, getUser}

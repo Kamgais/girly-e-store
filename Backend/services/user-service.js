@@ -13,6 +13,11 @@ const User = require('../models/User')
     static findUserByUsername(name) {
         return User.findOne({where: {username : name}})
     }
+
+    // find a user by id
+    static findUserById(id) {
+      return User.findByPk(id);
+    }
     
  }
 
