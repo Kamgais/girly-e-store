@@ -46,18 +46,18 @@ const loginAccount = () => {
          const token = jwt.sign({
             id: user.id,isAdmin: user.isAdmin
          }, process.env.JWT,{
-            expiresIn: '30s'
+            expiresIn: '1hr'
          })
          // console.log(user)
          const {password,isAdmin,...others} = user.dataValues;
          res
         .cookie('access_token', token,{
             path: '/',
-            expiresIn: new Date(Date.now() + 1000 * 30),
+            expiresIn: '1hr',
             httpOnly: true,
             sameSite: 'lax'
         })
-        .status(200).json({others, token});
+        .status(200).json({data : others, token});
         } catch (error) {
            next(error) 
         }
@@ -75,7 +75,7 @@ const getUser = () => {
             return res.status(404).json({message: 'User not found'});
 
         }
-        return res.status(200).json({user})
+         res.status(200).json({user})
     }
     catch (error) {
         next(error);
