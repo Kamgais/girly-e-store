@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({extended: false}))
 //parse application/json
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(cors())
+app.use(cors({credentials: true, origin: "http://localhost:3000"}))
 
 
 

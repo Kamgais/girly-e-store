@@ -1,5 +1,7 @@
 import React, {FunctionComponent, useState} from 'react'
 import { Link } from 'react-router-dom';
+import {useDispatch} from 'react-redux';
+import { signIn } from '../../Redux/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { UserDto } from '../../DTOs/UserDto';
 import { AuthService } from '../../Services/AuthService';
@@ -24,6 +26,7 @@ const NavigationForm:FunctionComponent<Props> = ({action}) => {
 
   const [error, setError] = useState<ValidateField>()
   const navigate = useNavigate();
+  const dispatch = useDispatch();
  
   
   // when inputs values change
@@ -70,12 +73,14 @@ const NavigationForm:FunctionComponent<Props> = ({action}) => {
    else if(action === 'LOGIN') {
     console.log('hhh')
    AuthService.signIn(user).then((response) => {
-     console.log(response);
-     navigate('/welcome')
-    })
+     console.log(response.data);
+     dispatch(signIn(response.data))
+     navigate('/welcome');
+     })
     .catch((error) => {
       console.log(error)
     })
+    
    }
    
  }
