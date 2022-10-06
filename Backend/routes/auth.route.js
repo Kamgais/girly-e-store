@@ -8,18 +8,32 @@ const {verifyToken, refreshToken} = require('../utils/verifyToken')
 *
 *@url http://localhost:5000/api/auth/register
 *@Body UserDto
+*@Post Request
 *
 */
 router.post('/register', createAccount())
 
 // login a user account
+/*
+*
+*@url http://localhost:5000/api/auth/login
+*@Body UserDto
+*@Post Request
+*/
 router.post('/login',loginAccount())
 
+
+
 //get a user 
+/*
+*
+*@url http://localhost:5000/api/auth/user
+*@Get Request
+*
+*/
 router.get('/user', verifyToken, getUser())
 
-//refresh
-router.get('/refresh',refreshToken, verifyToken, getUser())
+
 
 
 
