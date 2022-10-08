@@ -1,10 +1,14 @@
 import React from 'react'
+import BurgerBar from '../../Components/BurgerBar/BurgerBar'
+import Slider from '../../Components/Slider/Slider'
 
 const LandingPage = () => {
   return (
     <div>
-     <h1 style={{marginTop: '10px' , color : 'black'}}>Welcome</h1> 
-    </div>
+     <Slider/>
+     <BurgerBar/>
+     </div>
+    
   )
 }
 

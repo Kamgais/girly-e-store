@@ -1,4 +1,6 @@
-import React, {FunctionComponent} from 'react'
+import React, {FunctionComponent, useContext} from 'react'
+import { burgerContext } from '../../Context/BurgerContext';
+import { BurgerContextInterface } from '../../Context/BurgerContext';
 import {useSelector, useDispatch} from 'react-redux';
 
 import {NavigateFunction, Link, useNavigate} from 'react-router-dom';
@@ -9,6 +11,7 @@ import './navbar.styles/navbar.css'
 const Navbar: FunctionComponent = () => {
     const navigate:NavigateFunction = useNavigate();
     const dispatch = useDispatch();
+    const {opened,changeOpened} = useContext<BurgerContextInterface>(burgerContext);
     const {user,logged} = useSelector((state:any) => state.auth);
   return (
     <nav className='navBar'>
@@ -30,7 +33,7 @@ const Navbar: FunctionComponent = () => {
 
             ) : (
                 <>
-                <li className='icons-itemB' onClick={()=> navigate('/')}><i className="fa-solid fa-bars"></i></li>
+                <li className='icons-itemB' onClick={() => changeOpened('0%')}><i className="fa-solid fa-bars"></i></li>
                 <li className='icons-itemB' onClick={()=> navigate('/')}><i className="fa-solid fa-cart-shopping"></i></li>
                 <li className='icons-itemB' onClick={()=> navigate('/')}><i className="fa-solid fa-user"></i></li>
                 </>

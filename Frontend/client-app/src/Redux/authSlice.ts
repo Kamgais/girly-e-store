@@ -4,9 +4,9 @@ import {createSlice} from '@reduxjs/toolkit';
 
 
 let INITIAL_STATE;
-if(localStorage.getItem('current_user')) {
+if(sessionStorage.getItem('current_user')) {
     INITIAL_STATE = {
-    user: localStorage.getItem('current_user'),
+    user: sessionStorage.getItem('current_user'),
     logged: true
     }
 } else {
@@ -22,12 +22,12 @@ export const authSlice = createSlice({
      signIn: (state,action) => {
         state.user = action.payload;
         state.logged = true;
-        localStorage.setItem('current_user',state.user!)
+        sessionStorage.setItem('current_user',state.user!)
      },
      signOut: (state,action) => {
         state.user = null;
         state.logged = false;
-        localStorage.removeItem('current_user')
+        sessionStorage.removeItem('current_user')
      }
     }
 });

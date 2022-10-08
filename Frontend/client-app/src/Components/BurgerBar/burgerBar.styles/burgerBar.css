@@ -1,0 +1,81 @@
+.burger-bar-container {
+  width: 100vw;
+  background: black;
+  transform: translateX(-100%);
+  display: flex;
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transition: all 0.2s ease-out;
+}
+@media (min-width: 0) {
+  .burger-bar-container .burger-bar-left {
+    width: 30%;
+    height: 100vh;
+  }
+}
+@media (min-width: 639px) {
+  .burger-bar-container .burger-bar-left {
+    width: 50%;
+    height: 100vh;
+  }
+}
+.burger-bar-container .burger-bar-left img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.burger-bar-container .burger-bar-right {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  color: #f1f1f1;
+}
+@media (max-width: 427px) {
+  .burger-bar-container .burger-bar-right {
+    box-shadow: 5px 5px 5px 20px black;
+  }
+}
+.burger-bar-container .burger-bar-right .burger-bar-nav {
+  width: 100%;
+}
+.burger-bar-container .burger-bar-right ul {
+  list-style: none;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.burger-bar-container .burger-bar-right ul li {
+  width: 20%;
+  font-size: 30px;
+  font-family: "Roboto";
+  margin: 10px;
+  text-align: end;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.burger-bar-container .burger-bar-right ul li:hover {
+  color: #e84393;
+  letter-spacing: 1.4px;
+}
+
+.burger-bar-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  cursor: pointer;
+}/*# sourceMappingURL=burgerBar.css.map */

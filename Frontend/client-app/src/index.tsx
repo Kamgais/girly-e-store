@@ -5,6 +5,7 @@ import { store } from './Redux/Store';
 import './styles/index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import BurgerContext from './Context/BurgerContext';
 
 
 const root = ReactDOM.createRoot(
@@ -13,9 +14,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
   <Provider store={store}>
+    
   <React.StrictMode>
+  <BurgerContext>
     <App />
+    </BurgerContext>
   </React.StrictMode>
+  
   </Provider>
   </BrowserRouter>
 );
