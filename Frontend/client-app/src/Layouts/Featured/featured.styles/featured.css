@@ -8,7 +8,7 @@
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
-  padding: 50px 8vw;
+  padding: 50px 4vw;
   overflow-x: hidden;
   overflow-y: hidden;
   font-family: "Roboto";
@@ -25,6 +25,7 @@
 
 .featured-container-products {
   display: flex;
+  padding: 50px 4vw;
   align-items: center;
   gap: 20px;
 }

@@ -13,6 +13,5 @@ export const productList = [
 {productUrl: ProductTwo, title: 'Maskara Products', price: 49.99, reduction: 25},
 {productUrl: ProductThree, title: 'Beauty Products', price: 49.99, reduction: 25},
 {productUrl: ProductFour, title: 'Beauty Products', price: 49.99, reduction: 25},
-{productUrl: ProductFive, title: 'Beauty Products', price: 49.99, reduction: 25},
-{productUrl: ProductSix, title: 'Beauty Products', price: 49.99, reduction: 25},
+
 ]
