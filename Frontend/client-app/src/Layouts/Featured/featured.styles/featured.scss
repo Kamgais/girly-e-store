@@ -1,0 +1,59 @@
+
+.featured-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 85vw;
+    margin: 0 auto;
+    height: min-content;
+    padding: 50px 8vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-family: 'Roboto';
+
+
+      .featured-container-title{
+        margin-bottom: 20px;
+      }
+
+
+      .featured-container-description{
+        color: rgb(143, 145, 145);
+        width: 40%;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+
+}
+
+.featured-container-products{
+    display: flex;
+    align-items: center;
+    
+    gap: 20px;
+}
+
+
+.swipe-left, .swipe-right {
+ position: absolute;
+ z-index: 100;
+ font-size: 30px;
+ cursor: pointer;
+ top: 60%;
+ 
+}
+
+
+.swipe-left{
+    left: 25px;
+}
+
+.swipe-right{
+    right: 25px;
+}
+
+
+
+
