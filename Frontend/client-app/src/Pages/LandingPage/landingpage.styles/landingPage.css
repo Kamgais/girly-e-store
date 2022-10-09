@@ -1,1 +1,4 @@
-/*# sourceMappingURL=landingPage.css.map */
+.landing-page-container {
+  display: flex;
+  flex-direction: column;
+}/*# sourceMappingURL=landingPage.css.map */
