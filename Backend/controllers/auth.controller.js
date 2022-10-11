@@ -5,7 +5,7 @@ const {ValidationError} = require('sequelize')
 const UserService = require('../services/user-service');
 const generateError = require('../utils/error');
 const { findUserById } = require('../services/user-service');
-
+const colors = require('colors')
 
 // create a user account
 
@@ -16,6 +16,7 @@ const createAccount = () => {
        const newUser = await UserService.createUser(req.body);
        const {password, ...others} = newUser.dataValues;
        res.status(201).json({message: 'User has been created...', data : others})
+       console.log(colors.bold.bgGreen('/auth/register  POST USER'))
 
      } catch (error) {
         

@@ -1,4 +1,6 @@
 const Sequelize = require('sequelize')
+const colors = require('colors');
+
 
 
 
@@ -21,11 +23,15 @@ const sequelize = new Sequelize(
 const connection = async () => {
    try {
     await sequelize.authenticate()
-    console.log('connected to the database...')
+    console.log(colors.bold.bgBlue('Connected to the database...✅⏳😇'))
+   
    } catch (error) {
     console.error(error)
    }
 }
+
+
+
 
 
 
