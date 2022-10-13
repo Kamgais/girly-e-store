@@ -6,6 +6,7 @@ import AboutUs from '../../Layouts/AboutUs/AboutUs'
 import Categories from '../../Layouts/Categories/Categories'
 import Featured from '../../Layouts/Featured/Featured'
 import Footer from '../../Layouts/Footer/Footer'
+import Pagination from '../../Components/Pagination/Pagination';
 
 const LandingPage = () => {
   return (
@@ -16,6 +17,7 @@ const LandingPage = () => {
      <AboutUs/>
      <Featured/>
      <Footer/>
+     
      </div>
     
   )

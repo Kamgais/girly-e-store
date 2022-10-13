@@ -1,0 +1,21 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  justify-content: space-around;
+}
+.pagination-container span {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #e84393;
+  color: #f1f1f1;
+}
+.pagination-container a {
+  color: #e84393;
+  font-family: "Roboto";
+  text-decoration: none;
+}/*# sourceMappingURL=pagination.css.map */

@@ -5,17 +5,27 @@
     @include xs {
 
     }
-    width: 20vw;
-    min-width: 300px;
-    height: 500px;
+
+    @include lg {
+        
+    }
+    width: 100%;
+    min-width: 150px;
+    height: 350px;
     
     border: 2px solid;
     font-family: 'Roboto';
-
+  
 
     &:hover .product-container-actions{
         transform: translateX(0%);   
     }
+
+
+   
+
+
+   
 
 }
 
