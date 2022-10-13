@@ -1,0 +1,28 @@
+@import '../../../styles/colors';
+
+.pagination-container{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    justify-content: space-around;
+
+
+    span{
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background-color: $base-rosa-color;
+        color: $base-white-color;
+    }
+
+
+    a{
+        color: $base-rosa-color;
+        font-family: 'Roboto';
+        text-decoration: none;
+    }
+    
+}
