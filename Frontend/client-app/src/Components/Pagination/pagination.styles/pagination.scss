@@ -14,8 +14,14 @@
         justify-content: center;
         align-items: center;
         border-radius: 50%;
-        background-color: $base-rosa-color;
-        color: $base-white-color;
+        
+        cursor: pointer;
+    }
+
+
+    .current-page {
+    background-color: $base-rosa-color;
+    color: $base-white-color;
     }
 
 
@@ -23,6 +29,7 @@
         color: $base-rosa-color;
         font-family: 'Roboto';
         text-decoration: none;
+        cursor: pointer;
     }
     
 }

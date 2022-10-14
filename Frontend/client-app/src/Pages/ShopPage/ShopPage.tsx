@@ -1,15 +1,20 @@
 import React, {FunctionComponent, useState, useEffect, useRef} from 'react'
+import { CategoryDto } from '../../DTOs/CategoryDto';
 import Footer from '../../Layouts/Footer/Footer';
 import ProductList from '../../Layouts/ProductList/ProductList';
+import { CategoryService } from '../../Services/CategoryService';
 import './shop.styles/shop.css';
 
 const ShopPage:FunctionComponent = () => {
      // ref form
      const formRef = useRef<HTMLFormElement|null>(null);
-    // user is currently on this page
+  // user is currently on this page
     const [currentPage, setCurrentPage] = useState<number>(1);
     //No of Records to be displayed on each Page
     const [recordsPerPage] = useState<number>(10);
+
+    // categories 
+    const [categories, setCategories] = useState<CategoryDto[]|null>(null);
 
     const indexOfLastRecord = currentPage * recordsPerPage;
     const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
@@ -21,9 +26,33 @@ const ShopPage:FunctionComponent = () => {
         formRef.current!.style.display = 'none';
       }
     }
+
+     // fetch the categories fields
+    const fetchCategories = async() => {
+      const response = await CategoryService.getAllCategories();
+      setCategories(response);
+    }
+
+    // resize the filter part
+    const resizeFilter = () => {
+      window.addEventListener('resize', () => {
+        if(window.innerWidth <= 946) {
+         formRef.current!.style.display = 'block';
+        }
+       })
+    }
+    
+    
+    
     useEffect(()=> {
-       
+       resizeFilter();
+       fetchCategories();
     },[])
+
+  
+  
+  
+  
   return (
     <div style={{display: 'flex', flexDirection: 'column'}}>
     <div className="shop-container">
@@ -33,31 +62,23 @@ const ShopPage:FunctionComponent = () => {
            <form action="#" ref={formRef}>
             <div className="categories">
             <h4>Category</h4>
-            <div> <input type="checkbox" id='cosmetics' name='cosmetics' /> <label htmlFor="cosmetics">Cosmestics</label></div> 
-            <div> <input type="checkbox" id='makeup' name='makeup' /> <label htmlFor='makeup'>Makeup</label></div>
-            <div> <input type="checkbox" id='powder' name='powder' /> <label htmlFor="powder">Powder</label></div> 
-            <div> <input type="checkbox" id='lotions' name='lotions' /> <label htmlFor='lotions'>Lotions</label></div>
-            <div><input type="checkbox" id='lipstick' name='lipstick' /> <label htmlFor="lipstick">Lipstick</label></div>
-            <div><input type="checkbox" id='mascara' name='mascara' /> <label htmlFor="mascara">Mascara</label></div>
-            </div>
+            {categories?.map((category,index) => (
+              <div> <input type="checkbox" id={category.category_name} name={category.category_name} /> <span></span>
+            &nbsp;  <label htmlFor={category.category_name}>{(category.category_name).charAt(0).toUpperCase() + category.category_name.slice(1) }</label>
+              </div>
+            ))}
+             </div>
             
               <div className="prices">
-              <h4>Price</h4>
-            <div><input type="checkbox" id='100' name='100'/> <label htmlFor="">100$</label></div> 
-            <div><input type="checkbox" id='price' name='price' />   <label htmlFor="#">$100-$199</label></div>  
-            <div><input type="checkbox" id='price' name='price' /> <label htmlFor="#">$200-$599</label></div>
-            <div><input type="checkbox" id='price' name='price' /> <label htmlFor="#">$600-$999</label></div>
-            <div><input type="checkbox" id='price' name='price' /> <label htmlFor="#">$1000</label></div>
+              <label htmlFor='price'>Price</label>
+            <div><input type="radio" id='price' name='price'/>&nbsp;$100</div> 
+            <div><input type="radio" id='price' name='price' /> &nbsp;  $100-$199</div>  
+            <div><input type="radio" id='price' name='price' />&nbsp;  <label htmlFor="#">$200-$599</label></div>
+            <div><input type="radio" id='price' name='price' /> &nbsp; <label htmlFor="#">$600-$999</label></div>
+            <div><input type="radio" id='price' name='price' /> &nbsp; <label htmlFor="#">$1000</label></div>
             </div>
             
-              <div className="liters">
-              <h4>Liter</h4>
-            <div><input type="checkbox" id='100' name='100'/> <label htmlFor="">100ml</label></div> 
-            <div><input type="checkbox" id='200' name='200' />   <label htmlFor="#">200ml</label></div>  
-            <div><input type="checkbox" id='price' name='300' /> <label htmlFor="#">300ml</label></div>
-            <div><input type="checkbox" id='price' name='400' /> <label htmlFor="#">400ml</label></div>
-            <div><input type="checkbox" id='price' name='500' /> <label htmlFor="#">500ml</label></div>
-            </div>
+              
             
            </form>
         </div>
@@ -66,10 +87,11 @@ const ShopPage:FunctionComponent = () => {
               <h3>Shop All Products</h3>
               <div className="filter-selection">
                 <select name="" id="" className='selections'>
-                  <option value="">Cosmetcis</option>
-                  <option value="">Cosmetcis</option>
-                  <option value="">Cosmetcis</option>
-                  <option value="">Cosmetcis</option>
+                  {categories?.map((category,index) => (
+                   <option  key={index} value={category.category_name}>{category.category_name.charAt(0).toUpperCase() + category.category_name.slice(1)}</option>
+                  ))}
+                  
+                  
                 </select>
               </div>
             </div>

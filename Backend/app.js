@@ -10,6 +10,8 @@ const createRelations = require('./relations.config');
 // import routes
 const authRoute = require('./routes/auth.route')
 const productRoute = require('./routes/product.route');
+const categoryRoute = require('./routes/category.route');
+const Product = require('./models/Product');
 
 
 
@@ -17,7 +19,7 @@ const app = express();
 
 dotenv.config()
 connection();
-//sequelize.sync({alter: true})
+
 createRelations();
 
 
@@ -46,6 +48,7 @@ app.use(cors({credentials: true, origin: "http://localhost:3000"}))
 
 app.use('/api/auth', authRoute)
 app.use('/api/products', productRoute);
+app.use('/api/categories', categoryRoute)
 
 app.use((err,req,res,next) => {
     const errorStatus = err.status || 500
