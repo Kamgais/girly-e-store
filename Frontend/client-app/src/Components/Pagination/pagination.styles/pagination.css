@@ -11,6 +11,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  cursor: pointer;
+}
+.pagination-container .current-page {
   background-color: #e84393;
   color: #f1f1f1;
 }
@@ -18,4 +21,5 @@
   color: #e84393;
   font-family: "Roboto";
   text-decoration: none;
+  cursor: pointer;
 }/*# sourceMappingURL=pagination.css.map */

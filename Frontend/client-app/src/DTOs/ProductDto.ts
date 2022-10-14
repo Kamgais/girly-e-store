@@ -3,5 +3,6 @@ export interface ProductDto {
     name: string,
     price: number,
     description:string,
-    product_image:string
+    product_image:string,
+    rating:number
 }
