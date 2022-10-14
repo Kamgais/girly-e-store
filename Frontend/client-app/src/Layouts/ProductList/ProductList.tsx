@@ -13,7 +13,7 @@ const ProductList: FunctionComponent = () => {
   const [currentPage,setCurrentPage] = useState(1);
 
   //No of Records to be displayed on each page
-  const [recordsPerPage] = useState(10);
+  const [recordsPerPage] = useState(8);
 
   const indexOfLastRecord:number = currentPage * recordsPerPage;
   const indexOfFirstRecord:number = indexOfLastRecord - recordsPerPage;
@@ -28,10 +28,10 @@ const ProductList: FunctionComponent = () => {
     fetchProducts()
   },[])
 
-
+   let currentRecords:ProductDto[];
   //Records to be displayed of the current page
   if(products){
-    const currentRecords:ProductDto[] = products!.slice(indexOfFirstRecord,indexOfLastRecord);
+     currentRecords = products!.slice(indexOfFirstRecord,indexOfLastRecord);
   }
   
   // number of pages
@@ -40,7 +40,7 @@ const ProductList: FunctionComponent = () => {
     <div className='product-list-container'>
       <div className="product-list">
         {
-          products!.map((product, index) => (
+          currentRecords!.map((product, index) => (
             <Product product={product}/>
           ))
         }

@@ -4,6 +4,7 @@
 .product-list-container{
     display: flex;
     flex-direction: column;
+    
     align-items: center; 
     
 
@@ -14,11 +15,11 @@
             grid-template-columns: repeat(2,1fr);   
         }
         @include breakpoint(1000px) {
-            grid-template-rows: repeat(5,1fr);
+            
             grid-template-columns: repeat(3,1fr);   
             }
         @include breakpoint(1550px) {
-        grid-template-rows: repeat(5,1fr);
+       
         grid-template-columns: repeat(4,1fr);
         }
 

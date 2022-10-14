@@ -18,12 +18,13 @@ const Product:FunctionComponent<Props> = ({product}) => {
                 <div className="like-product"><i className="fa-solid fa-thumbs-up"></i></div>
                 <div className="share-product"><i className="fa-solid fa-share"></i></div>
             </div>
-            <div className="product-reduction-label">{`-${product.price}%`}</div>
+            {product.rating && <div className="product-reduction-label">{`-${product.rating}%`}</div>}
         </div>
         <div className="product-container-infos">
             <div className="product-note"></div>
             <div className="product-title">{product.name}</div>
-            <div className="product-price">{(product.price - (product.price * product.price) / 100).toFixed(2)}$  <span className='old-price'>{product.price}$</span></div>
+            {!product.rating && <div className="product-price">{product.price}$</div>}
+            {product.rating && <div className="product-price">{(product.price - (product.price * product.rating) / 100).toFixed(2)}$<span className='old-price'>{product.price}$</span></div>}
         </div>
       
     </div>

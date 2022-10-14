@@ -1,4 +1,5 @@
 @import '../../../styles/breakpoints';
+@import '../../../styles/colors';
 
 .shop-container{
     
@@ -41,10 +42,18 @@
              padding:  10px;
              margin-bottom: 20px;
 
-
+            }
 
              h3{
-                border-bottom: 0px;
+                @include xs {
+                    border-bottom: 0px;
+                    }
+                @include breakpoint(946px) {
+                 border-bottom: 2px solid rgb(161, 160, 160);   
+                }
+
+                
+               
              }
 
 
@@ -65,13 +74,18 @@
                 cursor: pointer;
                 
              }
-        }
+        
 
 
         form {
             display: flex;
             flex-direction: column;
             transition: display 0.2s ease-out;
+
+
+            input:checked:before{
+                background-color: $base-rosa-color;
+            }
 
             @include breakpointmax(946px) {
                display: none;
@@ -85,6 +99,7 @@
 
             input{
                 display: inline;
+               
             }
 
             .categories{
@@ -107,9 +122,7 @@
 
 
 
-                input{
-                    display: inline;
-                }
+                
             }
 
 
@@ -120,7 +133,7 @@
                 padding-left: 10px;
                 padding-bottom: 5px;
                 margin-bottom: 10px;
-                border-bottom: 2px solid rgb(190, 190, 190);
+                
                 
                 
                 div{
@@ -199,15 +212,23 @@
             width: 100px;
             height: 35px;
             background: white;
+            text-align: center;
             border: none;
             box-shadow: 0px 0px 3px 2px rgb(196, 195, 195);
             font-size: 15px;
             font-family: 'Roboto';
 
 
-            option{
+            *{
                 font-size: 15px;
                 font-family: 'Roboto'; 
+                background-color: $base-white-color;
+
+
+
+                &:hover{
+                    background-color: $base-rosa-color;
+                }
             }
 
 

@@ -40,14 +40,21 @@
     padding: 10px;
     margin-bottom: 20px;
   }
+}
+@media (min-width: 0) {
   .shop-container .shop-container-left h3 {
     border-bottom: 0px;
   }
-  .shop-container .shop-container-left i {
-    cursor: pointer;
+}
+@media (min-width: 946px) {
+  .shop-container .shop-container-left h3 {
+    border-bottom: 2px solid rgb(161, 160, 160);
   }
 }
-@media (max-width: 946px) and (min-width: 0) {
+.shop-container .shop-container-left i {
+  cursor: pointer;
+}
+@media (min-width: 0) {
   .shop-container .shop-container-left i {
     position: absolute;
     display: block;
@@ -55,7 +62,7 @@
     right: 10px;
   }
 }
-@media (max-width: 946px) and (min-width: 946px) {
+@media (min-width: 946px) {
   .shop-container .shop-container-left i {
     display: none;
   }
@@ -64,6 +71,9 @@
   display: flex;
   flex-direction: column;
   transition: display 0.2s ease-out;
+}
+.shop-container .shop-container-left form input:checked:before {
+  background-color: #e84393;
 }
 @media (max-width: 946px) {
   .shop-container .shop-container-left form {
@@ -89,9 +99,6 @@
 .shop-container .shop-container-left form .categories div {
   margin: 3px 0;
 }
-.shop-container .shop-container-left form .categories input {
-  display: inline;
-}
 .shop-container .shop-container-left form .prices {
   display: flex;
   flex-direction: column;
@@ -99,7 +106,6 @@
   padding-left: 10px;
   padding-bottom: 5px;
   margin-bottom: 10px;
-  border-bottom: 2px solid rgb(190, 190, 190);
 }
 .shop-container .shop-container-left form .prices div {
   margin: 3px 0;
@@ -152,12 +158,17 @@
   width: 100px;
   height: 35px;
   background: white;
+  text-align: center;
   border: none;
   box-shadow: 0px 0px 3px 2px rgb(196, 195, 195);
   font-size: 15px;
   font-family: "Roboto";
 }
-.shop-container-right .filter-selection .selections option {
+.shop-container-right .filter-selection .selections * {
   font-size: 15px;
   font-family: "Roboto";
+  background-color: #f1f1f1;
+}
+.shop-container-right .filter-selection .selections *:hover {
+  background-color: #e84393;
 }/*# sourceMappingURL=shop.css.map */
