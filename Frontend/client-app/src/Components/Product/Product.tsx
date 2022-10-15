@@ -1,5 +1,6 @@
 import React, {FunctionComponent} from 'react';
 import { ProductDto } from '../../DTOs/ProductDto';
+import { useNavigate } from 'react-router-dom';
 import './product.styles/product.css'
 
 
@@ -9,6 +10,7 @@ type Props = {
 }
 
 const Product:FunctionComponent<Props> = ({product}) => {
+    const navigate = useNavigate();
   return (
     <div className='product-container'>
         <div className="product-container-img">
@@ -16,7 +18,7 @@ const Product:FunctionComponent<Props> = ({product}) => {
             <div className="product-container-actions">
                 <div className="in-cart"><i className="fa-solid fa-cart-shopping"></i></div>
                 <div className="like-product"><i className="fa-solid fa-thumbs-up"></i></div>
-                <div className="share-product"><i className="fa-solid fa-share"></i></div>
+                <div onClick={() => navigate(`/products/${product.id}`)} className="share-product"><i className="fa-solid fa-share"></i></div>
             </div>
             {product.rating && <div className="product-reduction-label">{`-${product.rating}%`}</div>}
         </div>

@@ -6,8 +6,13 @@ import { ProductService } from '../../Services/ProductService';
 import Footer from '../Footer/Footer';
 import './products.styles/productList.css';
 
-const ProductList: FunctionComponent = () => {
-  const [products,setProducts] = useState<ProductDto[]|null>([]);
+
+type Props = {
+  productList: ProductDto[]|null
+}
+
+const ProductList: FunctionComponent<Props> = ({productList}) => {
+  
 
   //user is currently on this page
   const [currentPage,setCurrentPage] = useState(1);
@@ -18,30 +23,20 @@ const ProductList: FunctionComponent = () => {
   const indexOfLastRecord:number = currentPage * recordsPerPage;
   const indexOfFirstRecord:number = indexOfLastRecord - recordsPerPage;
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await ProductService.getAllProducts();
-      setProducts(response!.data);
-      console.log(response!.data);
-    }
-
-    fetchProducts()
-  },[])
-
-   let currentRecords:ProductDto[];
+let currentRecords:ProductDto[];
   //Records to be displayed of the current page
-  if(products){
-     currentRecords = products!.slice(indexOfFirstRecord,indexOfLastRecord);
+  if(productList){
+     currentRecords = productList!.slice(indexOfFirstRecord,indexOfLastRecord);
   }
   
   // number of pages
-  const nPages = Math.ceil(products!.length / recordsPerPage);
+  const nPages = Math.ceil(productList!.length / recordsPerPage);
   return (
     <div className='product-list-container'>
       <div className="product-list">
         {
           currentRecords!.map((product, index) => (
-            <Product product={product}/>
+            <Product key={index} product={product}/>
           ))
         }
       </div>
