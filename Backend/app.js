@@ -19,7 +19,7 @@ const app = express();
 
 dotenv.config()
 connection();
-
+//sequelize.sync({alter:true})
 createRelations();
 
 

@@ -7,6 +7,7 @@ import SignUpPage from './Pages/SignUpPage/SignUpPage';
 import LandingPage from './Pages/LandingPage/LandingPage';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import ShopPage from './Pages/ShopPage/ShopPage';
+import ProductView from './Pages/ProductView/ProductView';
 
 function App() {
 
@@ -19,7 +20,8 @@ function App() {
     <Routes>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/register' element={<SignUpPage/>}/>
-      <Route path='/welcome' element={<PrivateRoute><ShopPage/></PrivateRoute>}/>
+      <Route path='/products' element={<PrivateRoute><ShopPage/></PrivateRoute>}/>
+      <Route path='/products/:id' element={<PrivateRoute><ProductView/></PrivateRoute>}/>
 
 
 

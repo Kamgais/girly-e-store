@@ -6,6 +6,8 @@ const ProductVariation = require("./models/ProductVariation");
 const VariationOption = require("./models/VariationOption");
 const ProductItem = require("./models/ProductItem");
 const ProductConfiguration = require("./models/ProductConfiguration");
+const ShoppingCart = require("./models/ShoppingCart");
+const ShoppingCartItem = require("./models/ShoppingCartItem");
 
 
 const createRelations = () => {
@@ -33,7 +35,15 @@ const createRelations = () => {
 
     // relation between product_item and variation_option
     ProductItem.belongsToMany(VariationOption, {through: ProductConfiguration});
-    VariationOption.belongsToMany(ProductItem, {through: ProductConfiguration})
+    VariationOption.belongsToMany(ProductItem, {through: ProductConfiguration});
+
+    // relation between shopping_cart and shopping_cart_item
+    ShoppingCart.hasMany(ShoppingCartItem);
+    ShoppingCartItem.belongsTo(ShoppingCart);
+
+    // relation between shopping_cart_item and product_item
+    ProductItem.hasMany(ShoppingCartItem);
+    ShoppingCartItem.belongsTo(ProductItem);
 
 }
 

@@ -1,0 +1,256 @@
+@import '../../../styles/colors';
+@import '../../../styles/breakpoints';
+
+.product-view-container {
+    
+
+    @include xs {
+        
+        flex-direction: column;
+        width: 100vw;
+        margin-top: 150px;
+    }
+    @include sm {
+        width: 90vw;
+        flex-direction: row;
+        margin-top: 100px;
+
+    }
+    @include md {
+        width: 70vw;
+        flex-direction: row;
+        margin-top: 100px;
+
+    }
+    height: 100vh;
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:  0 auto;
+    
+
+
+    .container-left-side{
+
+        @include xs {
+            width: 90vw;
+            
+            
+        }
+
+        @include sm {
+            width: 50%;
+            margin-right: 30px;
+        }
+
+        @include md {
+        width: 80%;
+        min-width: 300px;
+        margin-right: 50px;
+        }
+        
+        height: 30vw;
+        min-height: 300px;
+        box-shadow: 2px 2px 8px 2px rgb(150, 150, 150);
+        
+
+
+
+
+        img{
+            @include sm {
+            object-fit: fill;
+            }
+
+            @include md {
+            object-fit: cover;
+            }
+            width: 100%;
+            height: 100%;
+           
+        }
+    }
+
+
+    .container-right-side{
+
+        @include xs{
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 90vw;
+           
+        }
+
+        @include sm {
+            justify-content: center;
+            gap: 30px;
+            width: 65%;
+        }
+
+        @include md {
+        justify-content: space-evenly;
+        gap:0px;
+        width: 65%;
+        }
+        
+        height: 100%;
+        max-height: 600px;
+        display: flex;
+        flex-direction: column;
+        
+        text-align: center;
+
+
+
+        .right-side-title{
+            @include sm {
+            font-size: 25px;
+            }
+            @include md {
+            font-size: 40px;
+            }
+            font-family: 'Roboto';
+           
+        }
+
+
+        .right-side-price{
+            font-family: 'Roboto';
+            font-weight: bold;
+
+
+            span {
+                color: rgb(94, 94, 94);
+                font-size: 15px;
+                text-decoration:line-through ;
+            }
+        }
+
+
+        .right-side-configurations{
+
+            
+            @include sm {
+            justify-content: center;
+            }
+
+            @include md {
+            justify-content: space-around;
+            }
+
+            display: flex;
+            align-items: center;
+
+
+
+            select{
+
+               &:nth-child(1) {
+                 @include xs {
+                    margin-right: 10px;
+                 }
+               }
+                @include sm {
+                    width: 50px;
+                    margin-left: 10px;
+
+                }
+
+                @include md {
+                width: 100px;
+                }
+                
+                height: 40px;
+                text-align: center;
+                border: none;
+                background-color: white;
+                font-weight: bold;
+                border: 2px solid grey;
+            }
+
+
+
+        }
+
+        .add-to-cart-container{
+
+            @include xs {
+                justify-content: space-evenly;
+                width: 100%;
+            }
+
+            @include md {
+            justify-content: space-around;
+            }
+            display: flex;
+            align-items: center;
+
+
+
+            input{
+                width: 50px;
+                height: 50px;
+                text-align: center;
+                font-weight: bold;
+                border: 2px solid grey;
+                font-size: 20px;
+                outline: none;
+            }
+
+
+            .add-to-cart{
+
+                @include xs {
+                    padding: 15px;
+                    
+                }
+
+                @include sm {
+                    width: 40%;
+                    }
+
+                 @include md {
+                 width: 70%;
+                    }
+                
+                height: 50px;
+                border: none;
+                font-weight: bold;
+                font-family: 'Roboto';
+                background-color: $base-rosa-color;
+                color: $base-white-color;
+                transition: all 0.5s ease-out;
+
+
+                &:hover{
+                    cursor: pointer;
+                    background-color: $base-rosa-hover-color;
+                }
+            }
+        }
+
+
+        .product-description{
+
+            @include xs {
+                font-size: 12px;
+            }
+
+            @include sm {
+                font-size: 12px;
+            }
+
+            @include md {
+             margin-top: 20px;
+             font-size: 16px;
+            }
+            display: flex;
+            font-family: 'Roboto';
+           
+           
+        }
+    }
+}
+
