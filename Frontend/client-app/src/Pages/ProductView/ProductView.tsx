@@ -55,10 +55,7 @@ const ProductView:FunctionComponent = () => {
         
         <div className="product-description">
           <p className="right-side-description">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus 
-            explicabo tempore minus iusto harum reiciendis deserunt blanditiis, 
-            sint, ad excepturi, iste voluptatem. Saepe accusamus optio in inventore
-             molestias hic beatae.
+           {product?.description}
           </p>
         </div>
       </div>

@@ -14,7 +14,7 @@ const Product = sequelize.define('products', {
     name: {
        type: DataTypes.STRING,
        allowNull:false,
-       unique: true ,
+      
        validate: {
         notEmpty: {
             msg: 'you must specify a name for the product'

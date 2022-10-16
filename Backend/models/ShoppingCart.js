@@ -10,6 +10,8 @@ const ShoppingCart = sequelize.define("shopping_cart", {
     }
 
 
+},{
+    timestamps: false
 })
 
 

@@ -12,7 +12,8 @@ const User = sequelize.define('users', {
     username:{
         type: DataTypes.STRING,
         allowNull:false,
-        unique: true,
+        defaultValue: "",
+        
         validate: {
             len : {
                 args: [6,30],
@@ -34,7 +35,7 @@ const User = sequelize.define('users', {
    email_address: {
     type: DataTypes.STRING,
     allowNull:false,
-    unique: true,
+    
     validate : {
         is: {
             args: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ,

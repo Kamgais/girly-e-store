@@ -75,7 +75,7 @@ const NavigationForm:FunctionComponent<Props> = ({action}) => {
    AuthService.signIn(user).then((response) => {
      console.log(response.data);
      dispatch(signIn(response.data))
-     navigate('/products');
+     navigate('/home');
      })
     .catch((error) => {
       console.log(error)
