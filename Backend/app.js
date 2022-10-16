@@ -6,12 +6,14 @@ const dotenv = require('dotenv')
 const cookieParser = require('cookie-parser')
 const {connection, sequelize} = require('./sequelize.config')
 const createRelations = require('./relations.config');
+const countryList = require('./countryList');
 
 // import routes
 const authRoute = require('./routes/auth.route')
 const productRoute = require('./routes/product.route');
 const categoryRoute = require('./routes/category.route');
 const Product = require('./models/Product');
+const Country = require('./models/Country');
 
 
 
@@ -19,7 +21,23 @@ const app = express();
 
 dotenv.config()
 connection();
-//sequelize.sync({alter:true})
+
+const fillTable = async() => {
+ await sequelize.sync({alter:true});
+ for(let element of countryList) {
+   await Country.create({country_name : element});
+ }
+}
+
+
+
+
+
+
+
+
+
+
 createRelations();
 
 

@@ -63,3 +63,5 @@ const Address = sequelize.define("address", {
 },{
     timestamps: false
 })
+
+module.exports = Address;
