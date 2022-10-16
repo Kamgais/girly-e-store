@@ -21,7 +21,7 @@ const Name = sequelize.define("name", {
         defaultValue:'Dong'
     }
 },{
-    timestamps: true
+    timestamps: false
 })
 
 module.exports = Name;

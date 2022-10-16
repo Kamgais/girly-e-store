@@ -53,7 +53,7 @@ const getProductById = () => {
 
     try {
       const product = await Product.findByPk(+id);
-      console.log(product);
+      
       res.status(200).json(product)
     } catch (error) {
       console.log(error);

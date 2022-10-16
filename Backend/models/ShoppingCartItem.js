@@ -13,6 +13,8 @@ const ShoppingCartItem = sequelize.define("shopping_cart_item", {
         type: DataTypes.INTEGER,
         allowNull:false
     }
+},{
+    timestamps: false
 })
 
 module.exports = ShoppingCartItem;

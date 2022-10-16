@@ -20,7 +20,8 @@ function App() {
     <Routes>
       <Route path='/login' element={<LoginPage/>}/>
       <Route path='/register' element={<SignUpPage/>}/>
-      <Route path='/products' element={<PrivateRoute><ShopPage/></PrivateRoute>}/>
+      <Route  path='/home' element={<LandingPage/>}/>
+      <Route path='/products' element={<ShopPage/>}/>
       <Route path='/products/:id' element={<PrivateRoute><ProductView/></PrivateRoute>}/>
 
 

@@ -8,6 +8,10 @@ const ProductItem = require("./models/ProductItem");
 const ProductConfiguration = require("./models/ProductConfiguration");
 const ShoppingCart = require("./models/ShoppingCart");
 const ShoppingCartItem = require("./models/ShoppingCartItem");
+const Customer = require("./models/Customer");
+const Name = require("./models/Name");
+const Country = require("./models/Country");
+const Address = require("./models/Address")
 
 
 const createRelations = () => {
@@ -45,6 +49,18 @@ const createRelations = () => {
     ProductItem.hasMany(ShoppingCartItem);
     ShoppingCartItem.belongsTo(ProductItem);
 
+
+    // relation between customer and name
+    Customer.hasOne(Name);
+    Name.belongsTo(Customer);
+
+    //relation between customer and address
+    Customer.hasMany(Address);
+    Address.belongsTo(Customer);
+
+    // relation between Address and Country
+    Country.hasMany(Address);
+    Address.belongsTo(Country);
 }
 
 
