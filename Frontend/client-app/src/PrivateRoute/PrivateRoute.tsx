@@ -18,3 +18,4 @@ const PrivateRoute:FunctionComponent<any> = (props:any) => {
 }
 
 export default PrivateRoute
+

@@ -1,0 +1,50 @@
+td {
+  padding: 0 10px;
+  width: 100%;
+  text-align: center;
+}
+
+tr .cart-table-element-qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  gap: 5px;
+}
+tr .cart-table-element-qty .minus, tr .cart-table-element-qty .plus {
+  width: 30px;
+  height: 30px;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.2s ease-out;
+}
+tr .cart-table-element-qty .minus:hover, tr .cart-table-element-qty .plus:hover {
+  cursor: pointer;
+  background: #e84393;
+  color: #f1f1f1;
+}
+
+.cart-table-element-product-infos .products-infos {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+img {
+  width: 70px;
+}
+
+.cart-table-element-price .right-side-price {
+  font-family: "Roboto";
+  font-weight: bold;
+  color: #e84393;
+}
+.cart-table-element-price .right-side-price span {
+  color: rgb(94, 94, 94);
+  font-size: 15px;
+  text-decoration: line-through;
+}/*# sourceMappingURL=cartTableElement.css.map */

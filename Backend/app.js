@@ -12,8 +12,15 @@ const countryList = require('./countryList');
 const authRoute = require('./routes/auth.route')
 const productRoute = require('./routes/product.route');
 const categoryRoute = require('./routes/category.route');
+const variationRoute = require('./routes/variation.route');
+const varOptionRoute = require('./routes/variationOption.route');
+const cartRoute = require('./routes/cart.route');
+const shoppingCartItemRoute = require('./routes/shoppingCartItem.route');
+const customerRoute = require('./routes/customer.route');
 const Product = require('./models/Product');
 const Country = require('./models/Country');
+const Variation = require('./models/Variation');
+const ProductVariation = require('./models/ProductVariation');
 
 
 
@@ -22,12 +29,11 @@ const app = express();
 dotenv.config()
 connection();
 
-const fillTable = async() => {
- await sequelize.sync({alter:true});
- for(let element of countryList) {
-   await Country.create({country_name : element});
- }
-}
+
+//sequelize.sync({alter: true})
+
+
+
 
 
 
@@ -64,9 +70,14 @@ app.use(cors({credentials: true, origin: "http://localhost:3000"}))
 
 // api routes
 
-app.use('/api/auth', authRoute)
+app.use('/api/auth', authRoute);
 app.use('/api/products', productRoute);
-app.use('/api/categories', categoryRoute)
+app.use('/api/categories', categoryRoute);
+app.use('/api/variations',variationRoute);
+app.use('/api/varoptions', varOptionRoute);
+app.use('/api/cartitem',shoppingCartItemRoute);
+app.use('/api/carts',cartRoute);
+app.use('/api/customer', customerRoute)
 
 app.use((err,req,res,next) => {
     const errorStatus = err.status || 500
