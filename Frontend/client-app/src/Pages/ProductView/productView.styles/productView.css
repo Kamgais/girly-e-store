@@ -154,6 +154,11 @@
     width: 100px;
   }
 }
+.product-view-container .container-right-side .right-side-configurations p {
+  font-weight: bold;
+  font-family: "Roboto";
+  margin-bottom: 10px;
+}
 .product-view-container .container-right-side .add-to-cart-container {
   display: flex;
   align-items: center;

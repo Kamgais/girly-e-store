@@ -1,14 +1,15 @@
 import {createSlice} from '@reduxjs/toolkit';
+import {UserDto} from '../DTOs/UserDto';
 
 
 
 
-let INITIAL_STATE;
+let INITIAL_STATE ;
 if(sessionStorage.getItem('current_user')) {
-    INITIAL_STATE = {
-    user: sessionStorage.getItem('current_user'),
+   INITIAL_STATE = {
+    user : JSON.parse(sessionStorage.getItem('current_user')!),
     logged: true
-    }
+   }
 } else {
     INITIAL_STATE = {
         user: null,
@@ -22,7 +23,7 @@ export const authSlice = createSlice({
      signIn: (state,action) => {
         state.user = action.payload;
         state.logged = true;
-        sessionStorage.setItem('current_user',state.user!)
+        sessionStorage.setItem('current_user',JSON.stringify(state.user!))
      },
      signOut: (state,action) => {
         state.user = null;

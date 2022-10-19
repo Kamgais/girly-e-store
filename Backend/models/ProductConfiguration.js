@@ -3,7 +3,7 @@ const { sequelize } = require("../sequelize.config");
 
 
 
-const ProductConfiguration = sequelize.define("product_configuration",{
+const ProductConfiguration = sequelize.define("product_config",{
  id: {
     type: DataTypes.INTEGER,
     primaryKey: true,

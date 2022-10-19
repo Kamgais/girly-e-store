@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useState} from 'react'
+import React, {Dispatch, FunctionComponent, useState} from 'react'
 import { Link } from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import { signIn } from '../../Redux/authSlice';
@@ -6,6 +6,12 @@ import { useNavigate } from 'react-router-dom';
 import { UserDto } from '../../DTOs/UserDto';
 import { AuthService } from '../../Services/AuthService';
 import './navigation.styles/navigationForm.css'
+import { CustomerService } from '../../Services/CustomerService';
+import { CartService } from '../../Services/CartService';
+import { getCustomer } from '../../Redux/actions/customer.actions';
+import { AnyAction } from '@reduxjs/toolkit';
+import { fetchCart } from '../../Redux/actions/cart.actions';
+import {useSelector} from 'react-redux';
 
 type Props = {
     action: string;
@@ -16,7 +22,10 @@ type ValidateField = {
   msg?:string 
 }
 
+type ActionType = (dispatch: any) => Promise<void>;
+
 const NavigationForm:FunctionComponent<Props> = ({action}) => {
+  const {id, userId} = useSelector((state:any) => state.customer);
   const [user,setUser] = useState<UserDto>({
                                             username: '',
                                             password: '',
@@ -26,7 +35,7 @@ const NavigationForm:FunctionComponent<Props> = ({action}) => {
 
   const [error, setError] = useState<ValidateField>()
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch:Dispatch<AnyAction|ActionType> = useDispatch<any>();
  
   
   // when inputs values change
@@ -62,11 +71,20 @@ const NavigationForm:FunctionComponent<Props> = ({action}) => {
     else if(isFormValid?.valid) {
      AuthService.createAccount(user)
      .then((response) => {
-       navigate('/login')
-     })
+      console.log(response)
+      CustomerService.createCustomer({userId: response.data.id, firstname: '', lastname: ''}).then((response) => {
+        console.log(response)
+        CartService.createCart({customerId: response!.id}).then((response) => {
+          navigate('/login')
+        })
+        
+      })
+       
+    })
      .catch((error) => {
       
      })
+     
     }
    }
 
@@ -75,7 +93,8 @@ const NavigationForm:FunctionComponent<Props> = ({action}) => {
    AuthService.signIn(user).then((response) => {
      console.log(response.data);
      dispatch(signIn(response.data))
-     navigate('/home');
+     dispatch(getCustomer(response.data.id))
+    navigate('/home');
      })
     .catch((error) => {
       console.log(error)
