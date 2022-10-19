@@ -1,0 +1,26 @@
+.shopping-cart-container {
+  margin: 0 auto;
+  margin-top: 150px;
+  width: 80vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shopping-cart-container .shopping-cart-title {
+  margin-bottom: 30px;
+}
+.shopping-cart-container .shopping-cart-title h1 {
+  font-family: "Roboto";
+  font-size: 40px;
+}
+.shopping-cart-container .shopping-cart-table {
+  width: 100%;
+}
+.shopping-cart-container .shopping-cart-summary {
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}/*# sourceMappingURL=shoppingCart.css.map */

@@ -1,0 +1,90 @@
+@import '../../../styles/colors';
+
+td{
+    padding: 0 10px;
+    
+    width: 100%;
+    text-align: center;
+
+
+
+
+    
+
+
+   
+}
+
+
+
+tr{
+    .cart-table-element-qty{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        gap: 5px;
+
+
+
+        .minus,.plus{
+            width: 30px;
+            height: 30px;
+            border: 2px solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+            transition: all 0.2s ease-out;
+
+
+
+            &:hover{
+                cursor: pointer;
+                background: $base-rosa-color;
+                color: $base-white-color;
+            }
+
+
+
+        }
+    }
+}
+
+
+
+
+
+.cart-table-element-product-infos{
+    
+    .products-infos{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    }
+
+
+
+img{
+    width: 70px;
+  
+}
+
+
+.cart-table-element-price{
+    .right-side-price{
+        font-family: 'Roboto';
+        font-weight: bold;
+        color: $base-rosa-color;
+
+
+        span {
+            color: rgb(94, 94, 94);
+            font-size: 15px;
+            text-decoration:line-through ;
+        }
+    }
+
+}

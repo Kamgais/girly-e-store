@@ -56,8 +56,13 @@ const Product = sequelize.define('products', {
     rating : {
         type: DataTypes.INTEGER,
         allowNull: true
+    },
+
+    qtyInStock: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 50
     }
-    
 
 }, {
     timestamps: false

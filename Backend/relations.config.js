@@ -4,14 +4,14 @@ const colors = require('colors');
 const Variation = require("./models/Variation");
 const ProductVariation = require("./models/ProductVariation");
 const VariationOption = require("./models/VariationOption");
-const ProductItem = require("./models/ProductItem");
 const ProductConfiguration = require("./models/ProductConfiguration");
 const ShoppingCart = require("./models/ShoppingCart");
 const ShoppingCartItem = require("./models/ShoppingCartItem");
 const Customer = require("./models/Customer");
 const Name = require("./models/Name");
 const Country = require("./models/Country");
-const Address = require("./models/Address")
+const Address = require("./models/Address");
+const User = require("./models/User");
 
 
 const createRelations = () => {
@@ -31,23 +31,17 @@ const createRelations = () => {
     Variation.hasMany(VariationOption);
     console.log(colors.bgRed('variation and variation_option in oneToMany relationship🌈'));
 
-
-    //relation between product_item and product
-    Product.hasMany(ProductItem);
-    ProductItem.belongsTo(Product)
-    console.log(colors.bgWhite('product and product_item in oneToMany relationship🌍')); 
-
-    // relation between product_item and variation_option
-    ProductItem.belongsToMany(VariationOption, {through: ProductConfiguration});
-    VariationOption.belongsToMany(ProductItem, {through: ProductConfiguration});
+// relation between product_item and variation_option
+    ShoppingCartItem.belongsToMany(VariationOption, {through: ProductConfiguration});
+    VariationOption.belongsToMany(ShoppingCartItem, {through: ProductConfiguration});
 
     // relation between shopping_cart and shopping_cart_item
     ShoppingCart.hasMany(ShoppingCartItem);
     ShoppingCartItem.belongsTo(ShoppingCart);
 
     // relation between shopping_cart_item and product_item
-    ProductItem.hasMany(ShoppingCartItem);
-    ShoppingCartItem.belongsTo(ProductItem);
+    Product.hasMany(ShoppingCartItem);
+    ShoppingCartItem.belongsTo(Product);
 
 
     // relation between customer and name
@@ -61,6 +55,16 @@ const createRelations = () => {
     // relation between Address and Country
     Country.hasMany(Address);
     Address.belongsTo(Country);
+
+
+    // relation between customer and shopping_cart
+    Customer.hasOne(ShoppingCart);
+    ShoppingCart.belongsTo(Customer);
+
+
+    // relation between customer and user
+    User.hasOne(Customer);
+    Customer.belongsTo(User);
 }
 
 
