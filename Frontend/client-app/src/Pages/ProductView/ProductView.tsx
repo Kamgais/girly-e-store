@@ -94,16 +94,26 @@ const ProductView:FunctionComponent = () => {
     if(isPresent) {
       const newItem = {
         ...item,
-        qty: item?.qty! + newItems[index].qty!
+        qty: item?.qty! + newItems[index].qty!,
+        totalPrice: (item?.qty! + newItems[index].qty!)*product?.price!
       }
       dispatch(updateItem(newItem,newItems[index].id))
       console.log('UPDATE')
     } else {
-      dispatch(setCartItem(cartId,item!))
+      const newItem = {
+        ...item,
+        totalPrice: item?.qty! * product?.price!
+      }
+      dispatch(setCartItem(cartId,newItem!))
       console.log('NEW')
     }
    } else {
-    dispatch(setCartItem(cartId, item!))
+    const newItem = {
+      ...item,
+      totalPrice: item?.qty! * product?.price!
+    }
+
+    dispatch(setCartItem(cartId, newItem!))
    }
    setNotification({message:'placed in shoppingcart', isPresent:true})
    setTimeout(()=> {

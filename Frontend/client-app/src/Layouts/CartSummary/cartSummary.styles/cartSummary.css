@@ -29,7 +29,7 @@
 }
 .cart-summary-container .cart-summary-actions button:hover {
   cursor: pointer;
-  background: rosybrown;
+  background: #f05da4;
 }
 .cart-summary-container .cart-summary-actions button:nth-child(1) {
   background: rgb(63, 63, 63);
