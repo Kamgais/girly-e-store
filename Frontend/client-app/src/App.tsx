@@ -9,6 +9,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import ShopPage from './Pages/ShopPage/ShopPage';
 import ProductView from './Pages/ProductView/ProductView';
 import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
+import PriceContext from './Context/PriceContext';
 
 function App() {
 
@@ -24,7 +25,7 @@ function App() {
       <Route  path='/home' element={<PrivateRoute><LandingPage/></PrivateRoute>}/>
       <Route path='/products' element={<PrivateRoute><ShopPage/></PrivateRoute>}/>
       <Route path='/products/:id' element={<PrivateRoute><ProductView/></PrivateRoute>}/>
-      <Route path='/cart' element={<PrivateRoute><ShoppingCart/></PrivateRoute>}/>
+      <Route path='/cart' element={<PrivateRoute><PriceContext><ShoppingCart/></PriceContext></PrivateRoute>}/>
 
 
 

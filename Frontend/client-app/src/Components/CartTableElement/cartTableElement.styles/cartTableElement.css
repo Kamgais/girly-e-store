@@ -47,4 +47,9 @@ img {
   color: rgb(94, 94, 94);
   font-size: 15px;
   text-decoration: line-through;
+}
+
+.fa-sharp:hover {
+  cursor: pointer;
+  color: #e84393;
 }/*# sourceMappingURL=cartTableElement.css.map */

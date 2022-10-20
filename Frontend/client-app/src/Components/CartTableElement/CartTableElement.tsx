@@ -1,16 +1,23 @@
-import React, { FunctionComponent, useEffect, useState } from 'react'
+import React, { Dispatch, FunctionComponent, useEffect, useState, useContext } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteItem, updateItem } from '../../Redux/actions/cartItem.actions';
 import { CartItemDto } from '../../DTOs/CartItemDto';
 import { ProductDto } from '../../DTOs/ProductDto';
 import { ProductService } from '../../Services/ProductService';
 import './cartTableElement.styles/cartTableElement.css';
+import { priceContext } from '../../Context/PriceContext';
 
 
 type Props = {
     item:CartItemDto;
+    calculate:(price:number) => void
 }
 
-const CartTableElement:FunctionComponent<Props> = ({item}) => {
+const CartTableElement:FunctionComponent<Props> = ({item,calculate}) => {
    const [product,setProduct] = useState<ProductDto|null>()
+   const [value,setValue] = useState<number>(item.qty!);
+   const dispatch:Dispatch<(dispatch:any) => void> = useDispatch<any>();
+   const {handleCalculate} = useContext(priceContext)
 
 
    const fetchProduct = async() => {
@@ -22,8 +29,39 @@ const CartTableElement:FunctionComponent<Props> = ({item}) => {
     }
    }
 
+ // increment value in cart
+   const incrementValue = () => {
+    if( value < product!.qtyInStock) {
+      setValue(prevState => prevState+1)
+      const newItem = {...item, qty: value+1, totalPrice: product?.price! * (value+1)}
+      dispatch(updateItem(newItem,item.id))
+    }
+   
+   }
+
+   //decrement value in cart
+   const decrementValue = () => {
+    if(value > 1) {
+      setValue(prevState=>prevState-1)
+      const newItem = {...item, qty: value-1,totalPrice: product?.price! * (value-1) }
+      dispatch(updateItem(newItem,item.id))
+    }
+    
+   }
+
+   //delete a item from cart
+   const deleteFromCart = () => {
+    dispatch(deleteItem(item.id!))
+   }
+
+   useEffect(()=>{
+    
+     handleCalculate(product?.price!)
+   },[product?.price])
+   
     useEffect(() => {
         fetchProduct()
+
       
     },[])
   return (
@@ -46,9 +84,9 @@ const CartTableElement:FunctionComponent<Props> = ({item}) => {
    </td>
 
    <td className='cart-table-element-qty'>
-    <div className="minus">-</div>
-    <div className="qty-to-change">{item.qty}</div>
-    <div className="plus">+</div>
+    <div className="minus" onClick={decrementValue}>-</div>
+    <div className="qty-to-change">{value}</div>
+    <div className="plus" onClick={incrementValue}>+</div>
 
    </td>
 
@@ -60,10 +98,11 @@ const CartTableElement:FunctionComponent<Props> = ({item}) => {
    </td>
 
    <td className='cart-table-element-price'>
-    <p>$10.50</p>
+    <p>${product && (product.price * value).toFixed(2)}</p>
+    
    </td>
 
-   <td className='cart-table-element-delete'><i className="fa-regular fa-trash"></i></td>
+   <td className='cart-table-element-delete'><i onClick={deleteFromCart} className="fa-sharp fa-solid fa-trash"></i></td>
    </tr>
   )
 }
