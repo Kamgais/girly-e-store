@@ -13,10 +13,11 @@ const Navbar: FunctionComponent = () => {
     const dispatch = useDispatch();
     const {opened,changeOpened} = useContext<BurgerContextInterface>(burgerContext);
     const {user,logged} = useSelector((state:any) => state.auth);
+    const {items} = useSelector((state:any) => state.cart)
   return (
     <nav className='navBar'>
         <div className="logo">
-            <img src={Logo} alt="" />
+            <img src={Logo} alt="" onClick={() => navigate('/home')} />
         </div>
         
         <div className="searchBar">
@@ -34,7 +35,7 @@ const Navbar: FunctionComponent = () => {
             ) : (
                 <>
                 <li className='icons-itemB' onClick={() => changeOpened('0%')}><i className="fa-solid fa-bars"></i></li>
-                <li className='icons-itemB' onClick={()=> navigate('/')}><i className="fa-solid fa-cart-shopping"></i></li>
+                <li className='icons-itemB' style={{position:'relative'}} onClick={()=> navigate('/cart')}><i className="fa-solid fa-cart-shopping"></i> { items.length !== 0 && <div className="items-numbers" style={{width:'20px', height:'20px', position:'absolute', background:'#e84393', top:'-30%', right: '-20%', borderRadius:'50%', color:'white', display:'flex', justifyContent:'center', alignItems:'center', fontSize:'10px', fontFamily:'Roboto'}}>{items.length}</div> }</li>
                 <li className='icons-itemB' onClick={()=> navigate('/')}><i className="fa-solid fa-user"></i></li>
                 </>
             ) }  

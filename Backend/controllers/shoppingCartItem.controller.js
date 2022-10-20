@@ -30,7 +30,7 @@ const createShoppingCartItem = () => {
             })
           }
 
-          res.status(200).json({...cartItem.dataValues, options: req.body.options})
+          res.status(200).json({...cartItem.dataValues, options: req.body.options, totalPrice: req.body.totalPrice})
         } catch (error) {
           res.status(500).json(error) 
           console.log(error) 
@@ -48,7 +48,7 @@ const updateShoppingCartItem = () => {
       const id = req.params.id;
       await ShoppingCartItem.update(req.body, {where:{id: +id}})
       const item = await ShoppingCartItem.findAll({where:{id: +id}})
-      res.status(200).json({...item[0].dataValues,options:  req.body.options})
+      res.status(200).json({...item[0].dataValues,options:  req.body.options, totalPrice: req.body.totalPrice})
  } catch (error) {
    res.status(500).json(error)   
     }
