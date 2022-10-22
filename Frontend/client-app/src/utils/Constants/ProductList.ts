@@ -9,9 +9,9 @@ import ProductEight from '../../Assets/images/product-8.jpg';
 
 
 export const productList = [
-{productUrl: ProductOne, title: 'Beauty Products', price: 49.99, reduction: 25},
-{productUrl: ProductTwo, title: 'Maskara Products', price: 49.99, reduction: 25},
-{productUrl: ProductThree, title: 'Beauty Products', price: 49.99, reduction: 25},
-{productUrl: ProductFour, title: 'Beauty Products', price: 49.99, reduction: 25},
+{product_image: ProductOne, name: 'Beauty Products', price: 49.99, rating: 75, id: 4},
+{product_image: ProductTwo, name: 'Maskara Products', price: 49.99, rating: 55, id: 16},
+{product_image: ProductThree, name: 'Beauty Products', price: 49.99, rating: 25, id: 33},
+{product_image: ProductFour, name: 'Beauty Products', price: 49.99, rating: 85, id: 25},
 
 ]

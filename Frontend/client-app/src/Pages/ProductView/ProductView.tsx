@@ -11,6 +11,7 @@ import { VariationService } from '../../Services/VariationService';
 import './productView.styles/productView.css';
 import { CartItemDto } from '../../DTOs/CartItemDto';
 import { setCartItem, updateItem } from '../../Redux/actions/cartItem.actions';
+import Footer from '../../Layouts/Footer/Footer';
 
 
 type Notification = {
@@ -134,6 +135,7 @@ const ProductView:FunctionComponent = () => {
 
 
   return (
+    <div>
     <div className='product-view-container'>
       <div className="container-left-side">
         <img src={product?.product_image} alt="" />
@@ -169,6 +171,8 @@ const ProductView:FunctionComponent = () => {
         </div>
       </div>
       
+    </div>
+    <Footer/>
     </div>
   )
 }

@@ -20,8 +20,8 @@ const Featured:FunctionComponent = () => {
         <div className="swipe-left" onClick={swipeLeft}><i className="fa-solid fa-angle-left"></i></div>
         <div className="swipe-right"><i className="fa-solid fa-chevron-right"></i></div>
       {
-        productList.map((product:any) => (
-          <Product product={product}/> 
+        productList.map((product:any, index) => (
+          <Product product={product} key={index}/> 
         ))
       }
       

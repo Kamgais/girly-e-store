@@ -26,8 +26,8 @@ const BurgerBar:FunctionComponent = () => {
         <div className="burger-bar-right">
             <nav className='burger-bar-nav'>
                 <ul className='burger-bar-ul'>
-                    <li className="burger-bar-li" onClick={()=>navigate('/home')}>HOME</li>
-                    <li className="burger-bar-li" onClick={()=>navigate('/products')}>SHOP</li>
+                    <li className="burger-bar-li" onClick={()=>{navigate('/home'); changeOpened('-100%')}}>HOME</li>
+                    <li className="burger-bar-li" onClick={()=>{navigate('/products'); changeOpened('-100%') }}>SHOP</li>
                     <li className="burger-bar-li">GALLERY</li>
                     <li className="burger-bar-li">TEAM</li>
                     <li className="burger-bar-li">ARRIVALS</li>
