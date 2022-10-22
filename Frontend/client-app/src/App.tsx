@@ -10,6 +10,9 @@ import ShopPage from './Pages/ShopPage/ShopPage';
 import ProductView from './Pages/ProductView/ProductView';
 import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 import PriceContext from './Context/PriceContext';
+import Checkout from './Pages/Checkout/Checkout';
+import SucessPage from './Pages/SucessPage/SucessPage';
+import BurgerBar from './Components/BurgerBar/BurgerBar';
 
 function App() {
 
@@ -17,6 +20,7 @@ function App() {
     <>
     <header className="App">
     <Navbar/>
+    <BurgerBar/>
     </header>
     <main>
     <Routes>
@@ -26,6 +30,8 @@ function App() {
       <Route path='/products' element={<PrivateRoute><ShopPage/></PrivateRoute>}/>
       <Route path='/products/:id' element={<PrivateRoute><ProductView/></PrivateRoute>}/>
       <Route path='/cart' element={<PrivateRoute><PriceContext><ShoppingCart/></PriceContext></PrivateRoute>}/>
+      <Route path='/checkout' element={<PrivateRoute><Checkout/></PrivateRoute>} />
+      <Route path='/sucess' element={<PrivateRoute><SucessPage/></PrivateRoute>}/>
 
 
 

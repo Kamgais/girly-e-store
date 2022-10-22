@@ -12,7 +12,6 @@ const LandingPage = () => {
   return (
     <div className='landing-page-container'>
      <Slider/>
-     <BurgerBar/>
      <Categories/>
      <AboutUs/>
      <Featured/>

@@ -1,4 +1,5 @@
 import React,{FunctionComponent, useEffect,useState, useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { forEachTrailingCommentRange } from 'typescript';
 import { priceContext } from '../../Context/PriceContext';
@@ -6,7 +7,8 @@ import './cartSummary.styles/cartSummary.css';
 
 const CartSummary:FunctionComponent = () => {
     const {items} = useSelector((state:any) => state.cart)
-    const [totalPrice,setTotalPrice] = useState<number>()
+    const [totalPrice,setTotalPrice] = useState<number>();
+    const navigate = useNavigate();
     
     useEffect(()=> {
         setTotalPrice(0)
@@ -33,8 +35,8 @@ const CartSummary:FunctionComponent = () => {
             <p>${totalPrice?.toFixed(2)}</p>
         </div>
         <div className="cart-summary-actions">
-            <button>Keep shooping</button>
-            <button>Checkout -{'>'} </button>
+            <button onClick={() => navigate('/products')}>Keep shooping</button>
+            <button disabled={items.length === 0} onClick={() => navigate('/checkout')}>Checkout -{'>'} </button>
         </div>
       
     </div>

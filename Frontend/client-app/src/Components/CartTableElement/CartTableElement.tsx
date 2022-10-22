@@ -71,7 +71,7 @@ const CartTableElement:FunctionComponent<Props> = ({item,calculate}) => {
         <img src={product?.product_image} alt="image product" />
         <div className="products-details">
             <h3>{product?.name}</h3>
-            
+          
             
         </div>
     </div>

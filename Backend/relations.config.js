@@ -12,6 +12,10 @@ const Name = require("./models/Name");
 const Country = require("./models/Country");
 const Address = require("./models/Address");
 const User = require("./models/User");
+const ShopOrder = require("./models/ShopOrder");
+const OrderItem = require("./models/OrderItem");
+const OrderStatus = require("./models/OrderStatus");
+const PaymentMethod = require("./models/PaymentMethod");
 
 
 const createRelations = () => {
@@ -65,6 +69,33 @@ const createRelations = () => {
     // relation between customer and user
     User.hasOne(Customer);
     Customer.belongsTo(User);
+
+
+    // relation betweeen shop_order and customer
+    Customer.hasMany(ShopOrder);
+    ShopOrder.belongsTo(Customer);
+
+    // relation between shop_order and order_item
+    ShopOrder.hasMany(OrderItem);
+    OrderItem.belongsTo(ShopOrder);
+
+
+    // relation between order_item and cart_item
+    OrderItem.belongsTo(Product);
+    Product.hasMany(OrderItem);
+
+    // relation between order_status and shop_order
+    OrderStatus.hasMany(ShopOrder);
+    ShopOrder.belongsTo(OrderStatus);
+
+
+    // relation between payment_method and shop_order
+
+    PaymentMethod.hasMany(ShopOrder);
+    ShopOrder.belongsTo(PaymentMethod);
+
+
+    
 }
 
 

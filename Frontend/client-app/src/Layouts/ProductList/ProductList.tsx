@@ -18,7 +18,7 @@ const ProductList: FunctionComponent<Props> = ({productList}) => {
   const [currentPage,setCurrentPage] = useState(1);
 
   //No of Records to be displayed on each page
-  const [recordsPerPage] = useState(8);
+  const [recordsPerPage] = useState(12);
 
   const indexOfLastRecord:number = currentPage * recordsPerPage;
   const indexOfFirstRecord:number = indexOfLastRecord - recordsPerPage;

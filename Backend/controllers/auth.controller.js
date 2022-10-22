@@ -39,10 +39,10 @@ const loginAccount = () => {
         const message = 'wrong credentials!!!'
         try {
          const user = await UserService.findUserByUsername(req.body.username);
-         !user && res.status(404).json({message})
+         if(!user) return res.status(404).json({message})
 
          const validated = await bcrypt.compare(req.body.password, user.password);
-         !validated &&  res.status(401).json({message})
+         if(!validated) res.status(401).json({message})
          // create a token for the user
          const token = jwt.sign({
             id: user.id,isAdmin: user.isAdmin
