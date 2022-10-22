@@ -1,0 +1,70 @@
+@import '../../../styles/colors';
+
+.success-page-container{
+    margin: 0 auto;
+    margin-top: 150px;
+    width: 70vw;
+    font-family: 'Roboto';
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    .fa-solid{
+        font-size: 200px;
+        color: $base-rosa-color
+    }
+
+
+
+    .sucess-image{
+        margin-bottom: 30px;
+    }
+
+
+    .sucess-description{
+        text-align: center;
+
+
+        h1{
+            font-size: 50px;
+            margin-bottom: 30px;
+
+        }
+
+        h3{
+            font-size: 30px;
+            color: $base-rosa-color;
+            margin-bottom: 10px;
+        }
+
+        p{
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    }
+
+
+    .back-to-shop{
+        button{
+            width: 200px;
+            height: 50px;
+            border: none;
+            font-weight: bold;
+            color: $base-white-color;
+            background: $base-rosa-color;
+            border-radius: 5px;
+
+
+
+            &:hover{
+                cursor: pointer;
+                background: $base-rosa-hover-color;
+            }
+        }
+    }
+
+
+}

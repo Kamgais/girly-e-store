@@ -45,7 +45,7 @@ export const cartSlice = createSlice({
              
         },
 
-        emptyCart: (state,action) => {
+        emptyCart: (state) => {
            state.items = [] ;
         },
 

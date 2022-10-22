@@ -17,10 +17,8 @@ const varOptionRoute = require('./routes/variationOption.route');
 const cartRoute = require('./routes/cart.route');
 const shoppingCartItemRoute = require('./routes/shoppingCartItem.route');
 const customerRoute = require('./routes/customer.route');
-const Product = require('./models/Product');
-const Country = require('./models/Country');
-const Variation = require('./models/Variation');
-const ProductVariation = require('./models/ProductVariation');
+const orderRoute = require('./routes/order.route');
+const orderItemRoute = require('./routes/orderItem.route');
 
 
 
@@ -77,7 +75,9 @@ app.use('/api/variations',variationRoute);
 app.use('/api/varoptions', varOptionRoute);
 app.use('/api/cartitem',shoppingCartItemRoute);
 app.use('/api/carts',cartRoute);
-app.use('/api/customer', customerRoute)
+app.use('/api/customer', customerRoute);
+app.use('/api/order', orderRoute);
+app.use('/api/orderitem', orderItemRoute);
 
 app.use((err,req,res,next) => {
     const errorStatus = err.status || 500

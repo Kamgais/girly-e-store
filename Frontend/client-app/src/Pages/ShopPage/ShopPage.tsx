@@ -145,11 +145,11 @@ const ShopPage:FunctionComponent = () => {
               <div className="prices">
               <label htmlFor='price'>Price</label>
               <div><input type="radio" id='all' name='price' onChange={(e) => handleFilter(e)}/>&nbsp;All prices</div>
-            <div><input type="radio" id='alpha' name='price' onChange={(e) => handleFilter(e)}/>&nbsp;$100</div> 
+            <div><input type="radio" id='alpha' name='price' onChange={(e) => handleFilter(e)}/>&nbsp;{'<'}&nbsp;$100</div> 
             <div><input type="radio" id='beta' name='price' onChange={(e) => handleFilter(e)} />&nbsp;$100-$199</div>  
             <div><input type="radio" id='teta' name='price' onChange={(e) => handleFilter(e)} />&nbsp;$200-$299</div>
             <div><input type="radio" id='omega' name='price' onChange={(e) => handleFilter(e)} />&nbsp;$300-$399</div>
-            <div><input type="radio" id='lambda' name='price' onChange={(e) => handleFilter(e)} />&nbsp;$400</div>
+            <div><input type="radio" id='lambda' name='price' onChange={(e) => handleFilter(e)} />&nbsp;{'>'}&nbsp;$400</div>
             </div>
             
               

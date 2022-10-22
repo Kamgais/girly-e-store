@@ -1,0 +1,138 @@
+.checkout-container {
+  margin: 0 auto;
+  margin-top: 100px;
+  width: 90vw;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  max-width: 1400px;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto";
+}
+.checkout-container .checkout-title {
+  margin: 30px 0;
+}
+.checkout-container .checkout-title h1 {
+  font-size: 70px;
+}
+.checkout-container .order-container {
+  width: 90%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+  box-shadow: 0px 0px 6px 2px rgb(185, 185, 185);
+}
+.checkout-container .order-container .order-summary-title {
+  margin: 20px 0;
+}
+.checkout-container .order-container .order-summary-title h4 {
+  font-size: 20px;
+}
+.checkout-container .order-container .order-products {
+  margin: 20px;
+  padding-bottom: 30px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+.checkout-container .order-container .order-products .order-item {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.checkout-container .order-container .order-pricing {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 20px;
+  border-bottom: 2px solid rgb(218, 214, 214);
+  border-top: 2px solid rgb(218, 214, 214);
+}
+.checkout-container .order-container .order-payment-method {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 70%;
+  display: flex;
+  justify-content: space-around;
+}
+@media (min-width: 0) {
+  .checkout-container .order-container .order-payment-method {
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+  }
+}
+@media (min-width: 580px) {
+  .checkout-container .order-container .order-payment-method {
+    flex-direction: row;
+    gap: 0px;
+  }
+}
+.checkout-container .order-container .order-payment-method input {
+  display: none;
+}
+.checkout-container .order-container .order-payment-method input:checked + label {
+  background: #e84393;
+  color: #f1f1f1;
+  border: none;
+}
+.checkout-container .order-container .order-payment-method label {
+  min-width: 100px;
+  padding: 10px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+@media (min-width: 0) {
+  .checkout-container .order-container .order-payment-method label {
+    width: 100%;
+  }
+}
+@media (min-width: 580px) {
+  .checkout-container .order-container .order-payment-method label {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+}
+.checkout-container .order-container .order-actions {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.checkout-container .order-container .order-actions button {
+  height: 50px;
+  border: none;
+  font-size: 18px;
+  border-radius: 5px;
+}
+.checkout-container .order-container .order-actions button:nth-child(1) {
+  background: #e84393;
+  color: #f1f1f1;
+}
+.checkout-container .order-container .order-actions button:nth-child(1):hover {
+  background: #f05da4;
+  cursor: pointer;
+}
+.checkout-container .order-container .order-actions button:nth-child(2) {
+  background: transparent;
+  margin-bottom: 20px;
+}
+.checkout-container .order-container .order-actions button:nth-child(2):hover {
+  cursor: pointer;
+}/*# sourceMappingURL=checkout.css.map */
