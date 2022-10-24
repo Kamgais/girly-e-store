@@ -9,10 +9,7 @@ let INITIAL_STATE:CustomerDto = {
 }
 
 if(sessionStorage.getItem('current_customer')) {
-    INITIAL_STATE = {
-        firstname: null,
-        lastname: null,
-        ...JSON.parse(sessionStorage.getItem('current_customer')!)}
+    INITIAL_STATE = JSON.parse(sessionStorage.getItem('current_customer')!)
 } else {
     INITIAL_STATE = {
         firstname: null,
@@ -30,8 +27,13 @@ const customerSlice = createSlice({
             console.log(action.payload)
            state.id = action.payload.id;
            state.userId = action.payload.userId; 
-           sessionStorage.setItem('current_customer', JSON.stringify(state))
+           sessionStorage.setItem('current_customer', JSON.stringify({lastname: '', firstname:'', ...state}))
+        },
+        updateCustomer: (state,action) => {
+            state = action.payload;
+            sessionStorage.setItem('current_customer', JSON.stringify(state))
         }
+
     }
 
 })
