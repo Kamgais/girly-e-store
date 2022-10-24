@@ -13,6 +13,7 @@ import PriceContext from './Context/PriceContext';
 import Checkout from './Pages/Checkout/Checkout';
 import SucessPage from './Pages/SucessPage/SucessPage';
 import BurgerBar from './Components/BurgerBar/BurgerBar';
+import Profile from './Pages/Profile/Profile';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
       <Route path='/cart' element={<PrivateRoute><PriceContext><ShoppingCart/></PriceContext></PrivateRoute>}/>
       <Route path='/checkout' element={<PrivateRoute><Checkout/></PrivateRoute>} />
       <Route path='/sucess' element={<PrivateRoute><SucessPage/></PrivateRoute>}/>
+      <Route path='/profile' element={<PrivateRoute><Profile/></PrivateRoute>}/>
 
 
 

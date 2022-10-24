@@ -26,7 +26,7 @@ const Navbar: FunctionComponent = () => {
         </div>
         <div className="icons">
             <ul className='icons-items'>
-            {!logged? (
+            {!logged || !user? (
                 <>
                 <li className='icons-itemA' onClick={()=> navigate('/login')}>LOGIN</li>
                 <li className='icons-itemB' onClick={()=> navigate('/register')}>REGISTER</li>
@@ -36,7 +36,7 @@ const Navbar: FunctionComponent = () => {
                 <>
                 <li className='icons-itemB' onClick={() => changeOpened('0%')}><i className="fa-solid fa-bars"></i></li>
                 <li className='icons-itemB' style={{position:'relative'}} onClick={()=> navigate('/cart')}><i className="fa-solid fa-cart-shopping"></i> { items.length !== 0 && <div className="items-numbers" style={{width:'20px', height:'20px', position:'absolute', background:'#e84393', top:'-30%', right: '-20%', borderRadius:'50%', color:'white', display:'flex', justifyContent:'center', alignItems:'center', fontSize:'10px', fontFamily:'Roboto'}}>{items.length}</div> }</li>
-                <li className='icons-itemB' onClick={()=> navigate('/')}><i className="fa-solid fa-user"></i></li>
+                <li className='icons-itemB' onClick={()=> navigate('/profile')}><i className="fa-solid fa-user"></i></li>
                 </>
             ) }  
                 
