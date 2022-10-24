@@ -29,4 +29,15 @@ export class CustomerService {
          return null; 
         }
     }
+
+
+    static async updateCustomerById(id:number, customer: CustomerDto|null) {
+        try {
+          const response = await axios.put(`${BASE_URL}customer/user/${id}`, customer);
+          return response.data;  
+        } catch (error) {
+          console.log(error);
+          return null;  
+        }
+    }
 }

@@ -1,5 +1,5 @@
 const router =  require('express').Router();
-const {postCustomer, getCustomerByUserId} = require('../controllers/customer.controller');
+const {postCustomer, getCustomerByUserId, updateCustomer} = require('../controllers/customer.controller');
 
 // post a  customer
 router.post('/', postCustomer())
@@ -9,7 +9,7 @@ router.get('/user/:id', getCustomerByUserId());
 
 
 // update a customer
-router.put('/:id')
+router.put('/:id', updateCustomer())
 
 
 module.exports = router;

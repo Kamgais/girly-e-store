@@ -66,6 +66,9 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 app.use(cors({credentials: true, origin: "http://localhost:3000"}))
 
+app.get('/', (req,res) => {
+    res.status(200).json('Hello Heroku!😎🤩')
+})
 
 
 // api routes
@@ -81,7 +84,8 @@ app.use('/api/customer', customerRoute);
 app.use('/api/order', orderRoute);
 app.use('/api/orderitem', orderItemRoute);
 app.use('/api/countries', countryRoute);
-app.use('/api/users', userRoute)
+app.use('/api/users', userRoute);
+
 
 app.use((err,req,res,next) => {
     const errorStatus = err.status || 500
@@ -90,8 +94,9 @@ app.use((err,req,res,next) => {
 })
 
 
+const port  = process.env.PORT || 5000
 
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log(colors.bold.bgBrightMagenta('Girly Backend'))
     console.log(colors.bold.bgBlack('Server start on port 5000...😎🤩'))
 })
