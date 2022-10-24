@@ -1,5 +1,5 @@
 const { Sequelize, UniqueConstraintError } = require('sequelize');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken')
 const {ValidationError} = require('sequelize')
 const UserService = require('../services/user-service');
