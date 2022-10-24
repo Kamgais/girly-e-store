@@ -19,6 +19,8 @@ const shoppingCartItemRoute = require('./routes/shoppingCartItem.route');
 const customerRoute = require('./routes/customer.route');
 const orderRoute = require('./routes/order.route');
 const orderItemRoute = require('./routes/orderItem.route');
+const countryRoute = require('./routes/country.route');
+const userRoute = require('./routes/user.route');
 
 
 
@@ -78,6 +80,8 @@ app.use('/api/carts',cartRoute);
 app.use('/api/customer', customerRoute);
 app.use('/api/order', orderRoute);
 app.use('/api/orderitem', orderItemRoute);
+app.use('/api/countries', countryRoute);
+app.use('/api/users', userRoute)
 
 app.use((err,req,res,next) => {
     const errorStatus = err.status || 500

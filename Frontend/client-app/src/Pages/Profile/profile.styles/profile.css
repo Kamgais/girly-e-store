@@ -1,0 +1,89 @@
+.profile-container {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Roboto";
+}
+.profile-container .profile-container-title {
+  font-size: 50px;
+  margin: 30px 0;
+}
+.profile-container .profile-container-title span {
+  color: #e84393;
+}
+.profile-container .profile-container-form {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 50px;
+}
+.profile-container .profile-container-form .profile-infos, .profile-container .profile-container-form .personal-infos {
+  width: 100%;
+}
+.profile-container .profile-container-form form {
+  display: flex;
+  width: 80%;
+  gap: 10px;
+  flex-direction: column;
+}
+.profile-container .profile-container-form form label {
+  font-size: 20px;
+  align-self: flex-start;
+}
+.profile-container .profile-container-form form input, .profile-container .profile-container-form form select {
+  width: 90%;
+  height: 40px;
+  font-size: 20px;
+  padding: 0 10px;
+  outline: none;
+  border: none;
+  border: 1px solid rgb(170, 169, 169);
+  background: rgb(243, 240, 240);
+}
+.profile-container .profile-container-form form button {
+  width: 90%;
+  height: 40px;
+  border: none;
+  font-size: 15px;
+  font-weight: bold;
+  background: #e84393;
+  color: #f1f1f1;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.profile-container .profile-container-form form button:hover {
+  background: #f05da4;
+  cursor: pointer;
+}
+.profile-container .profile-container-img {
+  position: relative;
+  margin: 20px 0;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+.profile-container .profile-container-img input {
+  display: none;
+}
+.profile-container .profile-container-img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100px;
+  border-radius: 50%;
+}
+.profile-container .profile-container-img i {
+  position: absolute;
+  z-index: 100;
+  font-size: 20px;
+  right: 0;
+  top: 5px;
+}
+.profile-container .profile-container-img i:hover {
+  cursor: pointer;
+  color: #e84393;
+}/*# sourceMappingURL=profile.css.map */

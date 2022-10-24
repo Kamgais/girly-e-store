@@ -5,7 +5,11 @@ const {postCustomer, getCustomerByUserId} = require('../controllers/customer.con
 router.post('/', postCustomer())
 
 // get a customer by userId
-router.get('/user/:id', getCustomerByUserId())
+router.get('/user/:id', getCustomerByUserId());
+
+
+// update a customer
+router.put('/:id')
 
 
 module.exports = router;

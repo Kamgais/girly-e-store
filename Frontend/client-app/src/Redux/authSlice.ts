@@ -25,16 +25,21 @@ export const authSlice = createSlice({
         state.logged = true;
         sessionStorage.setItem('current_user',JSON.stringify(state.user!))
      },
-     signOut: (state,action) => {
+     signOut: (state) => {
         state.user = null;
         state.logged = false;
         sessionStorage.removeItem('current_user')
+     },
+     changeUser: (state,action) => {
+        state.user = action.payload;
+        sessionStorage.setItem('current_user',JSON.stringify(state.user!))
+
      }
     }
 });
 
 // Action creators are generated for each case reducer function
-export const {signIn, signOut} = authSlice.actions;
+export const {signIn, signOut, changeUser} = authSlice.actions;
 
 
 export default authSlice.reducer;
