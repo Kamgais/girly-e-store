@@ -40,3 +40,6 @@ npm start  // start the react app
 ![](./docs/fifth.png)
 
 ![](./docs/sixth.png) 
+![](./docs/seventh.png)
+![](./docs/eigth.png) 
+![](./docs/ninth.png) 
