@@ -48,11 +48,11 @@ createRelations();
 
 
 
-/*sequelize.sync({force:true}).then(()=> {
-    console.log('successfull initialization...')
-})
+//sequelize.sync().then(()=> {
+    //console.log('successfull initialization...')
+//})
 
-*/
+
 
 
 // middlewarres
